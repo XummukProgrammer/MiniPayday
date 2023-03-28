@@ -3,6 +3,7 @@ extends KinematicBody2D
 var _camera: Camera2D
 var _velocity = Vector2()
 
+export var obj : NodePath
 export var speed = 200
 export var camera_move_speed = 0.1
 
