@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 var _velocity = Vector2()
 
+export var obj : NodePath
 export var speed = 200
 
 func _move():
