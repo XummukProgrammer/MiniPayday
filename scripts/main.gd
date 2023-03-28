@@ -1,7 +1,10 @@
 extends Node2D
 
-onready var camera = $camera
-onready var player = $sort_objects/player
+export var camera_path: NodePath
+export var player_path: NodePath
+
+onready var camera = get_node(camera_path)
+onready var player = get_node(player_path)
 
 func _ready():
-	player.set_camera(camera)
+	camera.set_target_object(player)
