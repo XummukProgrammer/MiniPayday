@@ -42,7 +42,7 @@ func update_quests():
 		
 	# Проверяем выполнение квеста
 	if _current_quest.is_completed():
-		++_current_quest_index
+		_current_quest_index = _current_quest_index + 1
 		
 		if _current_quest_index >= _quests_data.size():
 			# Квесты закончились.
@@ -65,3 +65,8 @@ func _get_quest_by_index(index: int) -> quest:
 		return _quests_data[index] as quest
 	else:
 		return null
+
+# Функция вызывается при столкновении игрока с area2D триггером
+func on_player_area2d_triggered(name: String):
+	for quest_data in _quests_data:
+		(quest_data as quest).on_player_area2d_triggered(name)
