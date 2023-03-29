@@ -8,6 +8,28 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Resource",
+"class": "quest",
+"language": "GDScript",
+"path": "res://scripts/quests/quest.gd"
+}, {
+"base": "quest",
+"class": "quest_queue",
+"language": "GDScript",
+"path": "res://scripts/quests/quest_queue.gd"
+}, {
+"base": "Node",
+"class": "quests",
+"language": "GDScript",
+"path": "res://scripts/quests/quests.gd"
+} ]
+_global_script_class_icons={
+"quest": "",
+"quest_queue": "",
+"quests": ""
+}
+
 [application]
 
 config/name="MiniPayday"
