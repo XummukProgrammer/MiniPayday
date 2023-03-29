@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource( 1 )
-_id = "quest1"
-_area2d_name = "quest_area2d_trigger_1"
+_id = ""
+_area2d_name = "left_2_trigger"

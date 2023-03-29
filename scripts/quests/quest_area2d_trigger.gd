@@ -14,3 +14,4 @@ func is_completed() -> bool:
 func on_player_area2d_triggered(name: String):
 	if _area2d_name == name:
 		_is_triggered = true
+		print_debug(name)

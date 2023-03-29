@@ -6,7 +6,7 @@
 [ext_resource path="res://scripts/main.gd" type="Script" id=4]
 [ext_resource path="res://prefabs/decor/brick_border_left.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/camera.tscn" type="PackedScene" id=6]
-[ext_resource path="res://resources/quests/quests1.tres" type="Resource" id=7]
+[ext_resource path="res://resources/quests/first_quests.tres" type="Resource" id=7]
 [ext_resource path="res://scripts/quests/quests.gd" type="Script" id=8]
 [ext_resource path="res://scenes/quest_area2d_trigger.tscn" type="PackedScene" id=9]
 
@@ -15,11 +15,10 @@ script = ExtResource( 4 )
 camera_path = NodePath("camera")
 player_path = NodePath("sort_objects/player")
 quests_path = NodePath("quests")
-quests_area2d_triggers = [ NodePath("quest_area2d_trigger_1") ]
+quests_area2d_triggers = [ NodePath("left_trigger"), NodePath("left_2_trigger"), NodePath("right_trigger"), NodePath("right_2_trigger") ]
 
 [node name="quests" type="Node" parent="."]
 script = ExtResource( 8 )
-_debug_id = "TestQuests"
 _base_quest = ExtResource( 7 )
 
 [node name="camera" parent="." instance=ExtResource( 6 )]
@@ -68,7 +67,16 @@ position = Vector2( 1632, 168 )
 position = Vector2( 1824, 168 )
 
 [node name="player" parent="sort_objects" instance=ExtResource( 1 )]
-position = Vector2( 645, 328 )
+position = Vector2( 615, 348 )
 
-[node name="quest_area2d_trigger_1" parent="." instance=ExtResource( 9 )]
-position = Vector2( 645, 383 )
+[node name="left_trigger" parent="." instance=ExtResource( 9 )]
+position = Vector2( 479, 371 )
+
+[node name="left_2_trigger" parent="." instance=ExtResource( 9 )]
+position = Vector2( 349, 362 )
+
+[node name="right_trigger" parent="." instance=ExtResource( 9 )]
+position = Vector2( 734, 371 )
+
+[node name="right_2_trigger" parent="." instance=ExtResource( 9 )]
+position = Vector2( 866, 361 )

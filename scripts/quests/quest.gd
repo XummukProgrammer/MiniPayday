@@ -15,3 +15,7 @@ func is_completed() -> bool:
 # Функция вызывается при столкновении игрока с area2D триггером
 func on_player_area2d_triggered(name: String):
 	pass
+
+# Функция вызывается при обновлении квеста
+func update():
+	pass
