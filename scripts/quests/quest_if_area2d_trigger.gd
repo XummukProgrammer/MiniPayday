@@ -1,37 +1,30 @@
 class_name quest_if_area2d_trigger extends quest_if
 
-# Название узла с Area2D для выполнения true цепочки
-export var _true_area2d_name = "true_name"
+# Названия узлов Area2D.
+# При пересечении с определённым его индекс из этого массива
+# будет сопаставлен с возможными цепочками и возвращён в get_current_index_id()
+export var _conditions: Array
 
-# Название узла с Area2D для выполнения false цепочки
-export var _false_area2d_name = "false_name"
+# Индекс текущей цепочки.
+var _current_index = -1
 
-# Триггер для выполнения true цепочки
-var _is_true_triggered = false
-
-# Триггер для выполнения false цепочки
-var _is_false_triggered = false
-
-# Условие по использованию true цепочки.
-# Принимается решение в наследниках.
-func is_true_quest() -> bool:
-	return _is_true_triggered
-
-# Условие по использованию false цепочки.
-# Принимается решение в наследниках.
-func is_false_quest() -> bool:
-	return _is_false_triggered
+# Возвращает индекс цепочки по условию
+func get_current_index() -> int:
+	return _current_index
 
 # Функция вызывается при столкновении игрока с area2D триггером
 func on_player_area2d_triggered(name: String):
+	# Вызываем on_player_area2d_triggered(name) в дочерних цепочках
 	.on_player_area2d_triggered(name)
 	
-	# Если переключился триггер, мы его не можем ещё раз переключить
-	if _is_true_triggered == true or _is_false_triggered == true:
+	# Если текущий индекс уже найден, его нельзя поменять
+	if _current_index != -1:
 		return
 	
-	# Сравниваем пересечение с триггером, если нужно, включаем флаги
-	if name == _true_area2d_name:
-		_is_true_triggered = true
-	elif name == _false_area2d_name:
-		_is_false_triggered = true
+	# Ищем нужный кондишен, забираем его индекс и записываем в _current_index
+	var index = 0
+	for condition in _conditions:
+		if condition == name:
+			_current_index = index
+			return
+		index = index + 1

@@ -7,7 +7,5 @@
 [resource]
 script = ExtResource( 1 )
 _id = ""
-_true_quest = ExtResource( 3 )
-_false_quest = ExtResource( 2 )
-_true_area2d_name = "left_trigger"
-_false_area2d_name = "right_trigger"
+_quests = [ ExtResource( 3 ), ExtResource( 2 ) ]
+_conditions = [ "left_trigger", "right_trigger" ]
