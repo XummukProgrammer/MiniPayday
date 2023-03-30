@@ -7,10 +7,13 @@ export (Array, Resource) var _quest_if_elements
 var _current_quest_if_element: quest_if_element
 
 # Произведена ли инициализация элементов
+# TODO: Заменить на condition.is_inited() ?
 var _is_elements_inited = false
 
 # Функция вызывается при обновлении квеста
 func update():
+	.update()
+	
 	# Инициализируем элементы
 	if not _is_elements_inited:
 		for quest_if_element in _quest_if_elements:
@@ -28,8 +31,3 @@ func update():
 	# Найденный элемент всегда обновляем
 	if _current_quest_if_element:
 		_current_quest_if_element.get_quest().update()
-
-# Функция вызывается при столкновении игрока с area2D триггером
-func on_player_area2d_triggered(name: String):
-	if _current_quest_if_element:
-		_current_quest_if_element.get_quest().on_player_area2d_triggered(name)

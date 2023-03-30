@@ -25,11 +25,6 @@ _global_script_classes=[ {
 "path": "res://scripts/quests/quest.gd"
 }, {
 "base": "quest",
-"class": "quest_area2d_trigger",
-"language": "GDScript",
-"path": "res://scripts/quests/quest_area2d_trigger.gd"
-}, {
-"base": "quest",
 "class": "quest_if",
 "language": "GDScript",
 "path": "res://scripts/quests/quest_if.gd"
@@ -53,7 +48,6 @@ _global_script_class_icons={
 "area_trigger_condition": "",
 "condition": "",
 "quest": "",
-"quest_area2d_trigger": "",
 "quest_if": "",
 "quest_if_element": "",
 "quest_queue": "",
