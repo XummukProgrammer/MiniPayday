@@ -1,27 +1,35 @@
 class_name quest_if extends quest
 
 # Загружаемые цепочки квестов
-export (Array, Resource) var _quests
+export (Array, Resource) var _quest_if_elements
 
-# Возвращает индекс цепочки по условию в наследниках
-func get_current_index() -> int:
-	return -1
+# Текущий элемент, который прошёл условие
+var _current_quest_if_element: quest_if_element
 
-# Возвращает цепочку квестов по условию.
-func get_current_quest() -> quest_queue:
-	var index = get_current_index()
-	if index != -1 and index < _quests.size():
-		return _quests[index] as quest_queue
-	return null
+# Произведена ли инициализация элементов
+var _is_elements_inited = false
 
 # Функция вызывается при обновлении квеста
 func update():
-	var current_quest = get_current_quest()
-	if current_quest:
-		current_quest.update()
+	# Инициализируем элементы
+	if not _is_elements_inited:
+		for quest_if_element in _quest_if_elements:
+			var data = quest_if_element as quest_if_element
+			data.init()
+		_is_elements_inited = true
+	
+	# Пытаемся найти элемент, который удовлетворяет условие
+	if not _current_quest_if_element:
+		for quest_if_element in _quest_if_elements:
+			var data = quest_if_element as quest_if_element
+			if data.get_condition().is_success():
+				_current_quest_if_element = data
+				
+	# Найденный элемент всегда обновляем
+	if _current_quest_if_element:
+		_current_quest_if_element.get_quest().update()
 
 # Функция вызывается при столкновении игрока с area2D триггером
 func on_player_area2d_triggered(name: String):
-	var current_quest = get_current_quest()
-	if current_quest:
-		current_quest.on_player_area2d_triggered(name)
+	if _current_quest_if_element:
+		_current_quest_if_element.get_quest().on_player_area2d_triggered(name)

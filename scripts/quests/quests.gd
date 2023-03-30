@@ -1,9 +1,5 @@
 class_name quests extends Node
 
-signal quests_started
-signal quests_ended
-signal quest_executed(quest)
-
 export (Resource) var _base_quest
 
 # Возвращает базовую цепочку квестов

@@ -1,11 +1,9 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=3 format=2]
 
-[ext_resource path="res://scripts/quests/quest_if_area2d_trigger.gd" type="Script" id=1]
-[ext_resource path="res://resources/quests/right_quests/right_quests.tres" type="Resource" id=2]
-[ext_resource path="res://resources/quests/left_quests/left_quests.tres" type="Resource" id=3]
+[ext_resource path="res://scripts/quests/quest_if.gd" type="Script" id=1]
+[ext_resource path="res://resources/quests/left_quests/if_left_quest.tres" type="Resource" id=2]
 
 [resource]
 script = ExtResource( 1 )
 _id = ""
-_quests = [ ExtResource( 3 ), ExtResource( 2 ) ]
-_conditions = [ "left_trigger", "right_trigger" ]
+_quest_if_elements = [ ExtResource( 2 ) ]
