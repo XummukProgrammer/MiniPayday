@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "ItemResource",
+"language": "GDScript",
+"path": "res://scripts/resources/item_resource.gd"
+}, {
 "base": "condition",
 "class": "area_trigger_condition",
 "language": "GDScript",
@@ -45,6 +50,7 @@ _global_script_classes=[ {
 "path": "res://scripts/quests/quests.gd"
 } ]
 _global_script_class_icons={
+"ItemResource": "",
 "area_trigger_condition": "",
 "condition": "",
 "quest": "",
@@ -63,6 +69,7 @@ config/icon="res://icon.png"
 [autoload]
 
 GlobalVariables="*res://scripts/global_variables.gd"
+InventoryManager="*res://prefabs/inventory_manager.tscn"
 
 [gui]
 
