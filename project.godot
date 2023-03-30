@@ -8,11 +8,61 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "condition",
+"class": "area_trigger_condition",
+"language": "GDScript",
+"path": "res://scripts/conditions/area_trigger_condition.gd"
+}, {
+"base": "Resource",
+"class": "condition",
+"language": "GDScript",
+"path": "res://scripts/conditions/condition.gd"
+}, {
+"base": "Resource",
+"class": "quest",
+"language": "GDScript",
+"path": "res://scripts/quests/quest.gd"
+}, {
+"base": "quest",
+"class": "quest_if",
+"language": "GDScript",
+"path": "res://scripts/quests/quest_if.gd"
+}, {
+"base": "Resource",
+"class": "quest_if_element",
+"language": "GDScript",
+"path": "res://scripts/quests/quest_if_element.gd"
+}, {
+"base": "quest",
+"class": "quest_queue",
+"language": "GDScript",
+"path": "res://scripts/quests/quest_queue.gd"
+}, {
+"base": "Node",
+"class": "quests",
+"language": "GDScript",
+"path": "res://scripts/quests/quests.gd"
+} ]
+_global_script_class_icons={
+"area_trigger_condition": "",
+"condition": "",
+"quest": "",
+"quest_if": "",
+"quest_if_element": "",
+"quest_queue": "",
+"quests": ""
+}
+
 [application]
 
 config/name="MiniPayday"
 run/main_scene="res://scenes/main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+GlobalVariables="*res://scripts/global_variables.gd"
 
 [gui]
 
