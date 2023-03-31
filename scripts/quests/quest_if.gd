@@ -27,7 +27,15 @@ func update():
 			var data = quest_if_element as quest_if_element
 			if data.get_condition().is_success():
 				_current_quest_if_element = data
+				# Развилку тоже сохраняем как отдельный квест.
+				GlobalVariables.get_main().get_quests().on_quest_completed(data.get_id())
 				
 	# Найденный элемент всегда обновляем
 	if _current_quest_if_element:
 		_current_quest_if_element.get_quest().update()
+
+# Выполнение цепочки только в том случае, как будет закончена вся текущая цепочка
+func is_completed() -> bool:
+	if _current_quest_if_element:
+		return _current_quest_if_element.get_quest().is_completed()
+	return false

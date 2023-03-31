@@ -35,6 +35,9 @@ func update():
 		
 	# Проверяем выполнение квеста
 	if _current_quest.is_completed():
+		_current_quest.on_completed()
+		
+		# Обновляем счётчик квестов
 		_current_quest_index = _current_quest_index + 1
 		
 		if _current_quest_index >= _quests_data.size():
@@ -54,3 +57,7 @@ func _get_quest_by_index(index: int) -> quest:
 		return _quests_data[index] as quest
 	else:
 		return null
+
+# Мы выходим из этой цепочки только в том случае, если закончились все квесты
+func is_completed() -> bool:
+	return _current_quest_index == -1
