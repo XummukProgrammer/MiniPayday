@@ -73,6 +73,6 @@ position = Vector2( 640, 184 )
 position = Vector2( 638, 238 )
 
 [node name="CollisionShape2D" parent="clear_gates_trigger" index="0"]
-position = Vector2( 3.5, -17.5 )
+position = Vector2( 3, -17.5 )
 
 [editable path="clear_gates_trigger"]
