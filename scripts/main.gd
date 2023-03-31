@@ -3,6 +3,7 @@ class_name main extends Node2D
 onready var _camera = $camera
 onready var _player = $sort_objects/player
 onready var _quests = $quests
+onready var _gates = $sort_objects/gates_01
 
 # Получить камеру
 func get_camera() -> Node2D:

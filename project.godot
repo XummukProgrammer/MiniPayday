@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "action",
+"language": "GDScript",
+"path": "res://scripts/actions/action.gd"
+}, {
+"base": "action",
+"class": "action_remove_node",
+"language": "GDScript",
+"path": "res://scripts/actions/action_remove_node.gd"
+}, {
 "base": "condition",
 "class": "area_trigger_condition",
 "language": "GDScript",
@@ -50,6 +60,8 @@ _global_script_classes=[ {
 "path": "res://scripts/quests/quests.gd"
 } ]
 _global_script_class_icons={
+"action": "",
+"action_remove_node": "",
 "area_trigger_condition": "",
 "condition": "",
 "main": "",
@@ -63,7 +75,7 @@ _global_script_class_icons={
 [application]
 
 config/name="MiniPayday"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/test/clear_gates.tscn"
 config/icon="res://icon.png"
 
 [autoload]
