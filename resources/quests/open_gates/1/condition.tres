@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource( 1 )
-_target_name = "player"
+_target_name = ""
 _msg_text = "clear_gates"

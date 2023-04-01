@@ -20,6 +20,14 @@ func on_message_sent(who: Node2D, body: Node2D, text: String):
 	if _is_message_success:
 		return
 	
+	# Проверяем имя body. Если body == null, то означает что сообщение пришло
+	# не с помощью пересечения областей, а например с помощью нажатия на клавишу.
+	var _is_body_success = false
+	if not body:
+		_is_body_success = true
+	else:
+		_is_body_success = body.name == _target_name
+	
 	# Сверяем данные, если они равны, то считаем, что кондишен отработал
-	if body.name == _target_name and _msg_text == text:
+	if _is_body_success and _msg_text == text:
 		_is_message_success = true
