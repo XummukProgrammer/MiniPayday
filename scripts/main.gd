@@ -3,6 +3,7 @@ class_name main extends Node2D
 onready var _camera = $camera
 onready var _player = $sort_objects/player
 onready var _quests = $quests
+onready var _gates = $sort_objects/gates_01
 
 # Получить камеру
 func get_camera() -> Node2D:
@@ -16,11 +17,10 @@ func get_player() -> Node2D:
 func get_quests() -> quests:
 	return _quests as quests
 
-# Пересечение игрока с областью Area2D
-func on_quest_area2d_trigger_body_entered(body, name):
-	if _player.name == body.name:
-		for condition in GlobalVariables.get_conditions():
-			condition.on_player_area_entered(name)
+# Произошла отправка сообщения
+func on_message_sent(who: Node2D, body: Node2D, text: String):
+	for condition in GlobalVariables.get_conditions():
+		condition.on_message_sent(who, body, text)
 
 # Произошла загрузка уровня.
 # Предварительно добавил сюда, в будущем будет система уровней.
