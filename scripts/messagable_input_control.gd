@@ -12,12 +12,11 @@ onready var _hint = $Hint
 # Имя input action, после активации которого будет выпущено сообщение
 export var _input_action_name = "ui_accept"
 
-# Название клавиши.
-# TODO: Принимать название исходя из контекста игровой платформы.
-export var _keyboard_name = "Enter"
-
 # Сообщение, которое будет послано в систему для обработки
 export var _message = "message"
+
+# Название контроллера.
+export var _controller_name = "controller_name"
 
 # Показываем хинт
 func _on_messagable_input_control_body_entered(body):
@@ -34,8 +33,17 @@ func _ready():
 	# Скрываем хинт при старте
 	_hint.visible = false
 	
+	# Получаем название контроллера.
+	# Необходимо брать в зависимости от того устройства, на котором запущено,
+	# т.к. сейчас вывод произойдёт только на клавиатуре.
+	for input_action in InputMap.get_action_list(_input_action_name):
+		var data = input_action as InputEventKey
+		if data:
+			_controller_name = OS.get_scancode_string(data.scancode)
+			break
+	
 	# Устанавливаем текст хинта
-	_hint.text = "Press %s!" % _keyboard_name
+	_hint.text = "Press %s!" % _controller_name
 
 # Обновление объекта
 func _process(delta):
