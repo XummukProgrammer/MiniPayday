@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/actions/action_remove_node.gd"
 }, {
-"base": "condition",
-"class": "area_trigger_condition",
-"language": "GDScript",
-"path": "res://scripts/conditions/area_trigger_condition.gd"
-}, {
 "base": "Resource",
 "class": "condition",
 "language": "GDScript",
@@ -33,6 +28,11 @@ _global_script_classes=[ {
 "class": "main",
 "language": "GDScript",
 "path": "res://scripts/main.gd"
+}, {
+"base": "condition",
+"class": "message_condition",
+"language": "GDScript",
+"path": "res://scripts/conditions/message_condition.gd"
 }, {
 "base": "Resource",
 "class": "quest",
@@ -62,9 +62,9 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "action": "",
 "action_remove_node": "",
-"area_trigger_condition": "",
 "condition": "",
 "main": "",
+"message_condition": "",
 "quest": "",
 "quest_if": "",
 "quest_if_element": "",
