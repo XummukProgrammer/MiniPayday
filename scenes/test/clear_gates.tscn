@@ -72,3 +72,10 @@ position = Vector2( 640, 184 )
 [node name="messagable_input_control" parent="." instance=ExtResource( 11 )]
 position = Vector2( 636, 272 )
 _message = "clear_gates"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Current Quest: QUEST_1"
