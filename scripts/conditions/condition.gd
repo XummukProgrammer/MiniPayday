@@ -7,8 +7,8 @@ var _is_inited = false
 func is_success() -> bool:
 	return false
 
-# Вызывается при вхождении игрока в область area
-func on_player_area_entered(area_name: String):
+# Произошла отправка сообщения
+func on_message_sent(who: Node2D, body: Node2D, text: String):
 	pass
 
 # Инициализация

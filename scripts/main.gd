@@ -1,22 +1,43 @@
-extends Node2D
+class_name main extends Node2D
 
-export var camera_path: NodePath
-export var player_path: NodePath
-export var quests_path: NodePath
-export (Array, NodePath) var quests_area2d_triggers
+onready var _camera = $camera
+onready var _player = $sort_objects/player
+onready var _quests = $quests
+onready var _current_quest = $CanvasLayer/Label
 
-onready var camera = get_node(camera_path)
-onready var player = get_node(player_path)
-onready var quests = get_node(quests_path)
+# Получить камеру
+func get_camera() -> Node2D:
+	return _camera
+
+# Получить игрока
+func get_player() -> Node2D:
+	return _player
+
+# Получить квесты
+func get_quests() -> quests:
+	return _quests as quests
+
+# Произошла отправка сообщения
+func on_message_sent(who: Node2D, body: Node2D, text: String):
+	for condition in GlobalVariables.get_conditions():
+		condition.on_message_sent(who, body, text)
+
+# Произошла загрузка уровня.
+# Предварительно добавил сюда, в будущем будет система уровней.
+func on_load_level():
+	# Сохраняем main для удобного обращения к нему из других классов.
+	GlobalVariables.set_main(self)
+	
+	# Камере устанавливаем игрока. Также предварительный вариант,
+	# в будущем будет дорабатываться.
+	_camera.set_target_object(_player)
+	
+	# Подписываемся на установку квеста
+	_quests.connect("current_quest_updated", self, "on_current_quest_updated")
+
+# Квест был обновлён
+func on_current_quest_updated(quest_id: String):
+	_current_quest.text = "Current Quest: %s" % quest_id
 
 func _ready():
-	camera.set_target_object(player)
-
-	for quests_area2d_trigger in quests_area2d_triggers:
-		var area2D = get_node(quests_area2d_trigger) as Area2D
-		area2D.connect("body_entered", self, "_on_quest_area2d_trigger_body_entered", [ area2D.name ])
-
-func _on_quest_area2d_trigger_body_entered(body, name):
-	if player.name == body.name:
-		for condition in GlobalVariables.get_conditions():
-			condition.on_player_area_entered(name)
+	on_load_level()

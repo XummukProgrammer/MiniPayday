@@ -35,11 +35,19 @@ func update():
 		
 	# Проверяем выполнение квеста
 	if _current_quest.is_completed():
+		_current_quest.on_completed()
+		
+		# Обновляем счётчик квестов
 		_current_quest_index = _current_quest_index + 1
 		
 		if _current_quest_index >= _quests_data.size():
 			# Квесты закончились.
 			_current_quest_index = -1
+			_current_quest = null
+			
+			# Цепочка завершена, не известно будет ли новая, но заранее обнуяем
+			# идентификатор текущего квеста.
+			GlobalVariables.get_main().get_quests().set_current_quest_id("")
 		else:
 			# Переключаемся на следующий квест
 			_set_current_quest(_get_quest_by_index(_current_quest_index))
@@ -47,6 +55,10 @@ func update():
 # Устанавливает текущий квест
 func _set_current_quest(quest: quest):
 	_current_quest = quest
+	
+	# Устанавливаем текущий идентификатор квеста
+	if _current_quest:
+		GlobalVariables.get_main().get_quests().set_current_quest_id(_current_quest.get_id())
 
 # Возвращает квест по идентификатору
 func _get_quest_by_index(index: int) -> quest:
@@ -54,3 +66,7 @@ func _get_quest_by_index(index: int) -> quest:
 		return _quests_data[index] as quest
 	else:
 		return null
+
+# Мы выходим из этой цепочки только в том случае, если закончились все квесты
+func is_completed() -> bool:
+	return _current_quest_index == -1
