@@ -1,22 +1,24 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://scripts/quests/quests.gd" type="Script" id=2]
-[ext_resource path="res://resources/quests/open_gates/chain.tres" type="Resource" id=3]
+[ext_resource path="res://scripts/quests/quest_queue.gd" type="Script" id=3]
 [ext_resource path="res://resources/tilesets/tilesets_01.tres" type="TileSet" id=4]
 [ext_resource path="res://prefabs/decor/brick_border_left.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/camera.tscn" type="PackedScene" id=7]
-[ext_resource path="res://prefabs/decor/gates_01.tscn" type="PackedScene" id=8]
+[ext_resource path="res://prefabs/action_objects/gates_01.tscn" type="PackedScene" id=8]
 [ext_resource path="res://prefabs/decor/brick_border_rigth.tscn" type="PackedScene" id=9]
+[ext_resource path="res://resources/quests/open_gates/1/quest.tres" type="Resource" id=10]
 [ext_resource path="res://scenes/messagable_input_control.tscn" type="PackedScene" id=11]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 3 )
+_id = ""
+_quests_data = [ ExtResource( 10 ) ]
 
 [node name="main" type="Node2D"]
 script = ExtResource( 1 )
-
-[node name="quests" type="Node" parent="."]
-script = ExtResource( 2 )
-_base_quest = ExtResource( 3 )
 
 [node name="camera" parent="." instance=ExtResource( 7 )]
 
@@ -63,11 +65,11 @@ position = Vector2( 1696, 186 )
 [node name="brick_border_right6" parent="sort_objects" instance=ExtResource( 9 )]
 position = Vector2( 1888, 186 )
 
+[node name="gates_01" parent="sort_objects" instance=ExtResource( 8 )]
+position = Vector2( 640, 179 )
+
 [node name="player" parent="sort_objects" instance=ExtResource( 6 )]
 position = Vector2( 968, 363 )
-
-[node name="gates_01" parent="sort_objects" instance=ExtResource( 8 )]
-position = Vector2( 640, 184 )
 
 [node name="messagable_input_control" parent="." instance=ExtResource( 11 )]
 position = Vector2( 636, 272 )
@@ -79,3 +81,7 @@ _message = "clear_gates"
 margin_right = 40.0
 margin_bottom = 14.0
 text = "Current Quest: QUEST_1"
+
+[node name="quests" type="Node" parent="."]
+script = ExtResource( 2 )
+_base_quest = SubResource( 1 )
