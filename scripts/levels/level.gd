@@ -38,7 +38,7 @@ func on_create():
 	
 # Выход с уровня
 func on_exit():
-	pass
+	_clear()
 	
 # Обновление
 func update():
@@ -60,3 +60,14 @@ func _load_objects():
 # Загрузка квестов
 func _load_quests():
 	GlobalVariables.get_main().get_quests().load_quests(_quests_data)
+
+# Очистка данных
+func _clear():
+	# Убираем камеру с игрока
+	GlobalVariables.get_main().get_camera().set_target_object(null)
+	
+	# Очищаем ноду текущего уровня
+	GlobalVariables.get_main().get_node("levels").remove_child(_scene)
+	
+	_scene = null
+	_player = null
