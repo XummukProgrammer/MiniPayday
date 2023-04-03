@@ -22,6 +22,7 @@ func play(id: String):
 		if lvl.get_id() == id:
 			_current_level = lvl
 			_current_level.on_create()
+			return
 	
 # Загрузка сцены по умолчанию
 func play_default():
