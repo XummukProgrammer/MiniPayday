@@ -9,7 +9,7 @@ export (int, "OPEN", "CLOSE") var _action
 # Удаляем ноду.
 func execute():
 	var path = String(_node_name).replace("../", "")
-	var node = GlobalVariables.get_main().get_node(path)
+	var node = GlobalVariables.get_main().get_current_level_scene().get_node(path)
 	print(node)
 	if node:
 		if _action == 0:

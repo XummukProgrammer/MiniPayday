@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://scripts/levels/level.gd" type="Script" id=1]
+[ext_resource path="res://resources/quests/open_gates/chain.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+_id = "level_2"
+_scene_path = "res://scenes/test/level_2.tscn"
+_player_path = NodePath("sort_objects/player")
+_quests_data = ExtResource( 2 )
