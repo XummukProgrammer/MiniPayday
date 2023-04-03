@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://scripts/quests/quests.gd" type="Script" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://prefabs/decor/brick_border_rigth.tscn" type="PackedScene" id=9]
 [ext_resource path="res://resources/quests/open_gates/1/quest.tres" type="Resource" id=10]
 [ext_resource path="res://scenes/messagable_input_control.tscn" type="PackedScene" id=11]
+[ext_resource path="res://prefabs/action_objects/item_object.tscn" type="PackedScene" id=12]
+[ext_resource path="res://icon.png" type="Texture" id=13]
+[ext_resource path="res://resources/items/crowbar_item.tres" type="Resource" id=14]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 3 )
@@ -70,6 +73,11 @@ position = Vector2( 640, 179 )
 
 [node name="player" parent="sort_objects" instance=ExtResource( 6 )]
 position = Vector2( 968, 363 )
+
+[node name="item_object" parent="sort_objects" instance=ExtResource( 12 )]
+position = Vector2( 879, 248 )
+_sprite = ExtResource( 13 )
+_item_resource = ExtResource( 14 )
 
 [node name="messagable_input_control" parent="." instance=ExtResource( 11 )]
 position = Vector2( 636, 272 )
