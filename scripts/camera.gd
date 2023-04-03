@@ -6,7 +6,9 @@ var _target_object: Node2D
 
 func set_target_object(target: Node2D):
 	_target_object = target
-	position = _target_object.position
+	
+	if _target_object:
+		position = _target_object.position
 
 func _physics_process(delta):
 	if _target_object:
