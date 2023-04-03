@@ -12,6 +12,9 @@ export (Resource) var _is_skipped_condition
 # Кондишен на окончание выполнения действия.
 export (Resource) var _is_executed_condition
 
+# Производить ли мгновенный запуск экшена?
+export var _is_force_execute = false
+
 # Возвращает идентификатор.
 func get_id() -> String:
 	return _id
@@ -58,3 +61,12 @@ func is_executed() -> bool:
 	if cond:
 		return cond.is_success()
 	return true
+
+# Обновление экшена.
+func update():
+	if _is_force_execute:
+		execute()
+
+# Производить ли мгновенный запуск экшена?
+func is_force_execute() -> bool:
+	return _is_force_execute
