@@ -8,8 +8,8 @@ signal current_quest_updated(quest_id)
 # q: quest - объект квеста
 signal quest_completed(q)
 
-# Базовый квест (стартовый)
-export (Resource) var _base_quest
+# Цепочка квестов
+var _chain_quests: quest_queue
 
 # Идентификатор текущего квеста
 var _current_quest_id = ""
@@ -17,9 +17,9 @@ var _current_quest_id = ""
 # Выполненные квесты
 var _completed_quests = Array()
 
-# Возвращает базовую цепочку квестов
-func get_base_quest() -> quest_queue:
-	return _base_quest as quest_queue
+# Загрузить квесты
+func load_quests(q: quest_queue):
+	_chain_quests = q
 
 # Устанавливает идентификатор текущего квеста
 func set_current_quest_id(id: String):
@@ -31,9 +31,8 @@ func get_current_quest_id() -> String:
 
 # Функция вызывается при обновлении квестов
 func update():
-	var base_quest = get_base_quest()
-	if base_quest:
-		base_quest.update()
+	if _chain_quests:
+		_chain_quests.update()
 
 # Функция вызывается при выполнении квеста
 func on_quest_completed(q: quest):

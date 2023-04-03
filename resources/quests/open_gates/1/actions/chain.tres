@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://scripts/actions/action_queue.gd" type="Script" id=1]
-[ext_resource path="res://resources/quests/open_gates/1/actions/1_action_open_gates.tres" type="Resource" id=2]
+[ext_resource path="res://resources/quests/open_gates/1/actions/1_action_clear_gates.tres" type="Resource" id=2]
 [ext_resource path="res://resources/quests/open_gates/1/actions/2_action_clear_messagable.tres" type="Resource" id=3]
 
 [resource]
