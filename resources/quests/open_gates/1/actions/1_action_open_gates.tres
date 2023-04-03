@@ -6,5 +6,5 @@
 script = ExtResource( 1 )
 _id = "id"
 _is_force_execute = false
-_node_name = NodePath("../sort_objects/gates_01")
+_node_name = NodePath("sort_objects/gates_01")
 _action = 0

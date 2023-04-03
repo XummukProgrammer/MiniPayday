@@ -12,6 +12,9 @@ var _current_action: action
 # Индекс выполняемого экшена.
 var _current_action_index = -1
 
+# Стартовал ли выполняемый экшен.
+var _is_current_action_started = false
+
 # Было ли совершено действие.
 func is_executed() -> bool:
 	return _is_actions_ended
@@ -29,12 +32,24 @@ func update():
 	
 	# Обновляем текущий экшен (Если он есть)
 	if _current_action:
+		# Обновляем, не зависит не от какой логики.
 		_current_action.update()
 		
-		# Пытаемся перейти на следующий экшен
-		if _current_action.is_executed():
-			# Переходим к следующему действию
+		# Если было совершено мгновенное выполнение, сразу переходим к следующему экшену.
+		if _current_action.is_force_execute():
 			_increment_current_action()
+			return
+		
+		# Если экшен стартовал, то производим с ним действия
+		if _is_current_action_started:
+			# Пытаемся скипнуть экшен
+			if _current_action.is_skipped():
+				_skip_current_action()
+			# Пытаемся перейти на следующий экшен
+			elif _current_action.is_executed():
+				_increment_current_action()
+		else:
+			_is_current_action_started = _current_action.is_started()
 
 # Перейти на новый экшен.
 func _increment_current_action():
@@ -44,6 +59,9 @@ func _increment_current_action():
 	
 	# Инкрементируем счётчик.
 	_current_action_index = _current_action_index + 1
+	
+	# Очищаем данные
+	_is_current_action_started = false
 	
 	# Проверяем, не закончились ли действия.
 	# Если закончились, то выходим из метода и очищаем данные.
@@ -62,3 +80,7 @@ func _increment_current_action():
 func _execute_current_action():
 	if _current_action:
 		_current_action.execute()
+
+# Скипаем текущее действие.
+func _skip_current_action():
+	_increment_current_action()

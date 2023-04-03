@@ -58,9 +58,9 @@ func update():
 	if _is_condition_success:
 		if _completed_action:
 			# Обновляем экшен.
-			# TODO: Таким образом мы не вызовим экшен вне action_queue, нужно
-			# доработать решение.
 			var act = get_completed_action()
 			act.update()
-	else:
-		_is_action_executed = true
+			
+			_is_action_executed = act.is_executed()
+		else:
+			_is_action_executed = true
