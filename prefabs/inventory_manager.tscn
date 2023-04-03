@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://resources/items/crowbar_item.tres" type="Resource" id=1]
+[ext_resource path="res://scripts/managers/inventory_manager.gd" type="Script" id=2]
+
+[node name="InventoryManager" type="Node"]
+script = ExtResource( 2 )
+_items = [ ExtResource( 1 ), ExtResource( 1 ), null ]

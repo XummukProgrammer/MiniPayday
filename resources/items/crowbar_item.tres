@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/resources/item_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+_name = "crowbar"
+_title = "Ломик"
+_description = "Этой штукой можно поднимать люки, ломать замки, бить стёкла или просто огреть им кого-нибудь по горбу."
+_cost = 1000

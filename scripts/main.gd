@@ -3,7 +3,7 @@ class_name main extends Node2D
 onready var _camera = $camera
 onready var _player = $sort_objects/player
 onready var _quests = $quests
-onready var _gates = $sort_objects/gates_01
+onready var _current_quest = $CanvasLayer/Label
 
 # Получить камеру
 func get_camera() -> Node2D:
@@ -31,6 +31,13 @@ func on_load_level():
 	# Камере устанавливаем игрока. Также предварительный вариант,
 	# в будущем будет дорабатываться.
 	_camera.set_target_object(_player)
+	
+	# Подписываемся на установку квеста
+	_quests.connect("current_quest_updated", self, "on_current_quest_updated")
+
+# Квест был обновлён
+func on_current_quest_updated(quest_id: String):
+	_current_quest.text = "Current Quest: %s" % quest_id
 
 func _ready():
 	on_load_level()
