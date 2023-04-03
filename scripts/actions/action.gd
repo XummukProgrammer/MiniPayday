@@ -58,3 +58,7 @@ func is_executed() -> bool:
 	if cond:
 		return cond.is_success()
 	return true
+
+# Обновление экшена.
+func update():
+	pass
