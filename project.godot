@@ -130,6 +130,7 @@ config/icon="res://icon.png"
 
 GlobalVariables="*res://scripts/global_variables.gd"
 InventoryManager="*res://prefabs/inventory_manager.tscn"
+Quests="*res://scripts/quests/quests.gd"
 
 [gui]
 

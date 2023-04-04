@@ -37,7 +37,7 @@ func is_completed() -> bool:
 # Функция вызывается при выполнении квеста
 func on_completed():
 	print_debug("Completed Quest: %s!" % get_id())
-	GlobalVariables.get_main().get_quests().on_quest_completed(self)
+	Quests.on_quest_completed(self)
 
 # Функция вызывается при обновлении квеста
 func update():

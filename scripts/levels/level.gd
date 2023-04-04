@@ -46,7 +46,7 @@ func _load_scene():
 
 # Загрузка квестов
 func _load_quests():
-	GlobalVariables.get_main().get_quests().load_quests(_quests_data)
+	Quests.load_quests(_quests_data)
 
 # Очистка данных
 func _clear():

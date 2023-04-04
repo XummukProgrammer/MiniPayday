@@ -1,17 +1,12 @@
 class_name main extends Node2D
 
 onready var _camera = $camera
-onready var _quests = $quests
 onready var _levels = $levels
 onready var _current_quest = $CanvasLayer/Label
 
 # Получить камеру
 func get_camera() -> Node2D:
 	return _camera
-
-# Получить квесты
-func get_quests() -> quests:
-	return _quests as quests
 	
 # Получить уровни
 func get_levels() -> levels:
@@ -39,7 +34,7 @@ func _ready():
 	GlobalVariables.set_main(self)
 
 	# Подписываемся на установку квеста
-	_quests.connect("current_quest_updated", self, "on_current_quest_updated")
+	Quests.connect("current_quest_updated", self, "on_current_quest_updated")
 	
 	# Загружаем уровень по умолчанию
 	_levels.play_default()
