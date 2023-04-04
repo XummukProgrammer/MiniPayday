@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://scripts/quests/quests.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://prefabs/action_objects/item_object.tscn" type="PackedScene" id=12]
 [ext_resource path="res://icon.png" type="Texture" id=13]
 [ext_resource path="res://resources/items/crowbar_item.tres" type="Resource" id=14]
+[ext_resource path="res://ui/ui_inventory.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 3 )
@@ -84,6 +85,8 @@ position = Vector2( 636, 272 )
 _message = "clear_gates"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ui_inventory" parent="CanvasLayer" instance=ExtResource( 15 )]
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 margin_right = 40.0
