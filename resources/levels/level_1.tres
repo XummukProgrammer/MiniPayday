@@ -7,5 +7,4 @@
 script = ExtResource( 1 )
 _id = "level_1"
 _scene_path = "res://scenes/test/level_1.tscn"
-_player_path = NodePath("sort_objects/player")
 _quests_data = ExtResource( 2 )
