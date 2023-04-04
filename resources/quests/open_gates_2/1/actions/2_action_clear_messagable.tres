@@ -6,4 +6,4 @@
 script = ExtResource( 1 )
 _id = "id"
 _is_force_execute = false
-_node_name = "messagable_input_control"
+_node_path = NodePath("messagable_input_control")
