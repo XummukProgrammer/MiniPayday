@@ -21,7 +21,7 @@ func update():
 			data.init()
 		
 		# Текущий квест считается квестом на развилку.
-		GlobalVariables.get_main().get_quests().set_current_quest_id(get_id())
+		Quests.set_current_quest_id(get_id())
 		
 		_is_elements_inited = true
 	
@@ -32,7 +32,7 @@ func update():
 			if data.get_condition().is_success():
 				_current_quest_if_element = data
 				# Развилку тоже сохраняем как отдельный квест.
-				GlobalVariables.get_main().get_quests().on_quest_completed(data.get_id())
+				Quests.on_quest_completed(data.get_id())
 				# Текущий квест не обновляем. Предполагаем что он обновится при первой
 				# итерации data.get_quest().update()
 				
