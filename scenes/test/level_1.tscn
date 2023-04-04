@@ -1,19 +1,27 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/levels/level_scene.gd" type="Script" id=1]
+[ext_resource path="res://scripts/messagable_input_control.gd" type="Script" id=2]
+[ext_resource path="res://resources/levels/1/interactive_objects/give_item/object.tres" type="Resource" id=3]
 [ext_resource path="res://resources/tilesets/tilesets_01.tres" type="TileSet" id=4]
 [ext_resource path="res://prefabs/decor/brick_border_left.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/interactive_object/interactive_objects.gd" type="Script" id=7]
 [ext_resource path="res://prefabs/action_objects/gates_01.tscn" type="PackedScene" id=8]
 [ext_resource path="res://prefabs/decor/brick_border_rigth.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/messagable_input_control.tscn" type="PackedScene" id=11]
-[ext_resource path="res://prefabs/action_objects/item_object.tscn" type="PackedScene" id=12]
 [ext_resource path="res://icon.png" type="Texture" id=13]
-[ext_resource path="res://resources/items/crowbar_item.tres" type="Resource" id=14]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 55, 41 )
 
 [node name="level_1" type="Node2D"]
 script = ExtResource( 1 )
 _player_path = NodePath("sort_objects/player")
+
+[node name="interactive_objects" type="Node" parent="."]
+script = ExtResource( 7 )
+_objects = [ ExtResource( 3 ) ]
 
 [node name="world" type="TileMap" parent="."]
 tile_set = ExtResource( 4 )
@@ -62,13 +70,37 @@ position = Vector2( 1888, 186 )
 position = Vector2( 640, 179 )
 
 [node name="player" parent="sort_objects" instance=ExtResource( 6 )]
-position = Vector2( 968, 363 )
+position = Vector2( 999, 350 )
 
-[node name="item_object" parent="sort_objects" instance=ExtResource( 12 )]
-position = Vector2( 879, 248 )
-_sprite = ExtResource( 13 )
-_item_resource = ExtResource( 14 )
+[node name="give_item" type="Sprite" parent="sort_objects"]
+position = Vector2( 905, 239 )
+texture = ExtResource( 13 )
+
+[node name="messagable_input_control" type="Area2D" parent="sort_objects/give_item"]
+script = ExtResource( 2 )
+_message = "give_item"
+
+[node name="Hint" type="Label" parent="sort_objects/give_item/messagable_input_control"]
+anchor_left = -0.0419922
+anchor_top = -0.0116667
+anchor_right = 0.0429688
+anchor_bottom = 0.0116667
+margin_left = -42.0
+margin_top = -6.0
+margin_right = 42.0
+margin_bottom = 8.0
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sort_objects/give_item/messagable_input_control"]
+position = Vector2( 0, 10 )
+shape = SubResource( 1 )
 
 [node name="messagable_input_control" parent="." instance=ExtResource( 11 )]
 position = Vector2( 636, 272 )
 _message = "clear_gates"
+
+[connection signal="body_entered" from="sort_objects/give_item/messagable_input_control" to="sort_objects/give_item/messagable_input_control" method="_on_messagable_input_control_body_entered"]
+[connection signal="body_exited" from="sort_objects/give_item/messagable_input_control" to="sort_objects/give_item/messagable_input_control" method="_on_messagable_input_control_body_exited"]
