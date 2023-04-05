@@ -47,7 +47,7 @@ func update():
 			
 			# Цепочка завершена, не известно будет ли новая, но заранее обнуяем
 			# идентификатор текущего квеста.
-			GlobalVariables.get_main().get_quests().set_current_quest_id("")
+			Quests.set_current_quest_id("")
 		else:
 			# Переключаемся на следующий квест
 			_set_current_quest(_get_quest_by_index(_current_quest_index))
@@ -58,7 +58,7 @@ func _set_current_quest(quest: quest):
 	
 	# Устанавливаем текущий идентификатор квеста
 	if _current_quest:
-		GlobalVariables.get_main().get_quests().set_current_quest_id(_current_quest.get_id())
+		Quests.set_current_quest_id(_current_quest.get_id())
 
 # Возвращает квест по идентификатору
 func _get_quest_by_index(index: int) -> quest:

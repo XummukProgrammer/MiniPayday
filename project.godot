@@ -25,9 +25,24 @@ _global_script_classes=[ {
 "path": "res://scripts/actions/action.gd"
 }, {
 "base": "action",
+"class": "action_add_item",
+"language": "GDScript",
+"path": "res://scripts/actions/action_add_item.gd"
+}, {
+"base": "action",
 "class": "action_gates",
 "language": "GDScript",
 "path": "res://scripts/actions/action_door.gd"
+}, {
+"base": "action",
+"class": "action_play_level",
+"language": "GDScript",
+"path": "res://scripts/actions/action_play_level.gd"
+}, {
+"base": "action",
+"class": "action_queue",
+"language": "GDScript",
+"path": "res://scripts/actions/action_queue.gd"
 }, {
 "base": "action",
 "class": "action_remove_node",
@@ -38,6 +53,31 @@ _global_script_classes=[ {
 "class": "condition",
 "language": "GDScript",
 "path": "res://scripts/conditions/condition.gd"
+}, {
+"base": "Resource",
+"class": "interactive_object",
+"language": "GDScript",
+"path": "res://scripts/interactive_object/interactive_object.gd"
+}, {
+"base": "Node",
+"class": "interactive_objects",
+"language": "GDScript",
+"path": "res://scripts/interactive_object/interactive_objects.gd"
+}, {
+"base": "Resource",
+"class": "level",
+"language": "GDScript",
+"path": "res://scripts/levels/level.gd"
+}, {
+"base": "Node",
+"class": "level_scene",
+"language": "GDScript",
+"path": "res://scripts/levels/level_scene.gd"
+}, {
+"base": "Node2D",
+"class": "levels",
+"language": "GDScript",
+"path": "res://scripts/levels/levels.gd"
 }, {
 "base": "Node2D",
 "class": "main",
@@ -78,9 +118,17 @@ _global_script_class_icons={
 "ItemResource": "",
 "Player": "",
 "action": "",
+"action_add_item": "",
 "action_gates": "",
+"action_play_level": "",
+"action_queue": "",
 "action_remove_node": "",
 "condition": "",
+"interactive_object": "",
+"interactive_objects": "",
+"level": "",
+"level_scene": "",
+"levels": "",
 "main": "",
 "message_condition": "",
 "quest": "",
@@ -93,13 +141,14 @@ _global_script_class_icons={
 [application]
 
 config/name="MiniPayday"
-run/main_scene="res://scenes/test/clear_gates.tscn"
+run/main_scene="res://scenes/test/main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 GlobalVariables="*res://scripts/global_variables.gd"
 InventoryManager="*res://prefabs/inventory_manager.tscn"
+Quests="*res://scripts/quests/quests.gd"
 
 [gui]
 
