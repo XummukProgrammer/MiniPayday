@@ -16,3 +16,10 @@ texture = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -0.5 )
 shape = SubResource( 1 )
+
+[node name="eye" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="eye"]
+polygon = PoolVector2Array( 0, -3, -242, -250, -156, -321, -1, -320, 163, -318, 244, -262 )
+
+[connection signal="body_exited" from="eye" to="." method="_on_eye_body_exited"]
