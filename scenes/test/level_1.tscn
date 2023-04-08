@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/levels/level_scene.gd" type="Script" id=1]
 [ext_resource path="res://scripts/messagable_input_control.gd" type="Script" id=2]
@@ -17,6 +17,11 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 55, 41 )
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 640, -203, 0, 0, 0, 0, 475, -209, 0, 0, 0, 0, 485, 35, 0, 0, 0, 0, 785, 41, 0, 0, 0, 0, 783, -207, 0, 0, 0, 0, 639, -204 )
+}
 
 [node name="level_1" type="Node2D"]
 script = ExtResource( 1 )
@@ -192,6 +197,8 @@ position = Vector2( 416, -800 )
 
 [node name="base_enemy" parent="sort_objects" instance=ExtResource( 14 )]
 position = Vector2( 632, -64 )
+speed = 100
+_path_to_move_pattern = NodePath("../../enemy_move_pattern")
 
 [node name="not_sorted_objects" type="Node2D" parent="."]
 
@@ -237,6 +244,9 @@ _message = "clear_gates"
 
 [node name="dark" type="CanvasModulate" parent="."]
 color = Color( 0.109804, 0.301961, 0.545098, 1 )
+
+[node name="enemy_move_pattern" type="Path2D" parent="."]
+curve = SubResource( 2 )
 
 [connection signal="body_entered" from="sort_objects/give_item/messagable_input_control" to="sort_objects/give_item/messagable_input_control" method="_on_messagable_input_control_body_entered"]
 [connection signal="body_exited" from="sort_objects/give_item/messagable_input_control" to="sort_objects/give_item/messagable_input_control" method="_on_messagable_input_control_body_exited"]
