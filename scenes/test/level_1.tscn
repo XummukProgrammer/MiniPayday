@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/levels/level_scene.gd" type="Script" id=1]
 [ext_resource path="res://scripts/messagable_input_control.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://scenes/messagable_input_control.tscn" type="PackedScene" id=11]
 [ext_resource path="res://prefabs/decor/lamp_01.tscn" type="PackedScene" id=12]
 [ext_resource path="res://icon.png" type="Texture" id=13]
+[ext_resource path="res://prefabs/decor/lamp_02.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 55, 41 )
@@ -189,43 +190,49 @@ position = Vector2( 416, -672 )
 [node name="bush_16" parent="sort_objects" instance=ExtResource( 10 )]
 position = Vector2( 416, -800 )
 
+[node name="lamp_04" parent="sort_objects" instance=ExtResource( 14 )]
+position = Vector2( 384, -896 )
+
+[node name="lamp_05" parent="sort_objects" instance=ExtResource( 14 )]
+position = Vector2( 896, -896 )
+
+[node name="lamp_02" parent="sort_objects" instance=ExtResource( 14 )]
+position = Vector2( 432, 296 )
+
+[node name="lamp_03" parent="sort_objects" instance=ExtResource( 14 )]
+position = Vector2( 848, 296 )
+
 [node name="not_sorted_objects" type="Node2D" parent="."]
 
-[node name="lamp_01" parent="not_sorted_objects" instance=ExtResource( 12 )]
-position = Vector2( 432, 96 )
-
-[node name="lamp_02" parent="not_sorted_objects" instance=ExtResource( 12 )]
-position = Vector2( 848, 96 )
-
 [node name="lamp_03" parent="not_sorted_objects" instance=ExtResource( 12 )]
-position = Vector2( 1040, 96 )
+position = Vector2( 1040, 79 )
 
 [node name="lamp_04" parent="not_sorted_objects" instance=ExtResource( 12 )]
-position = Vector2( 1232, 96 )
+position = Vector2( 1232, 79 )
 
 [node name="lamp_05" parent="not_sorted_objects" instance=ExtResource( 12 )]
-position = Vector2( 1424, 96 )
+position = Vector2( 1424, 79 )
 
 [node name="lamp_06" parent="not_sorted_objects" instance=ExtResource( 12 )]
-position = Vector2( 1616, 96 )
+position = Vector2( 1616, 79 )
 
 [node name="lamp_07" parent="not_sorted_objects" instance=ExtResource( 12 )]
-position = Vector2( 1808, 96 )
+position = Vector2( 1808, 79 )
 
 [node name="lamp_08" parent="not_sorted_objects" instance=ExtResource( 12 )]
-position = Vector2( -528, 96 )
+position = Vector2( -528, 79 )
 
 [node name="lamp_09" parent="not_sorted_objects" instance=ExtResource( 12 )]
-position = Vector2( -336, 96 )
+position = Vector2( -336, 79 )
 
 [node name="lamp_10" parent="not_sorted_objects" instance=ExtResource( 12 )]
-position = Vector2( -144, 96 )
+position = Vector2( -144, 79 )
 
 [node name="lamp_11" parent="not_sorted_objects" instance=ExtResource( 12 )]
-position = Vector2( 48, 96 )
+position = Vector2( 48, 79 )
 
 [node name="lamp_12" parent="not_sorted_objects" instance=ExtResource( 12 )]
-position = Vector2( 240, 96 )
+position = Vector2( 240, 79 )
 
 [node name="messagable_input_control" parent="." instance=ExtResource( 11 )]
 position = Vector2( 636, 272 )
