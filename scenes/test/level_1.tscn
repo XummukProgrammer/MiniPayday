@@ -20,7 +20,7 @@ extents = Vector2( 55, 41 )
 
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 640, -203, 0, 0, 0, 0, 475, -209, 0, 0, 0, 0, 485, 35, 0, 0, 0, 0, 785, 41, 0, 0, 0, 0, 783, -207, 0, 0, 0, 0, 639, -204 )
+"points": PoolVector2Array( 0, 0, 0, 0, 475, -209, 0, 0, 0, 0, 485, 35, 0, 0, 0, 0, 785, 41, 0, 0, 0, 0, 783, -207, 0, 0, 0, 0, 475, -209 )
 }
 
 [node name="level_1" type="Node2D"]

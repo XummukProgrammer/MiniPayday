@@ -7,6 +7,7 @@
 extents = Vector2( 32, 31.5 )
 
 [node name="base_enemy" type="KinematicBody2D"]
+rotation = 1.5708
 script = ExtResource( 2 )
 speed = 50
 
